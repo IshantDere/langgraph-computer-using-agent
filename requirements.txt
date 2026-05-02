@@ -1,0 +1,10 @@
+langgraph>=0.2.25
+langgraph-cua
+langchain>=0.2.10
+langchain-core>=0.2.39,<0.4
+langchain-openai
+openai
+scrapybara
+python-dotenv
+fastapi
+uvicorn[standard]
