@@ -88,27 +88,33 @@ loop continues until task completes
 
 ## 📁 Project Structure
 
-cua/
-  graph.py
-  call_model.py
-  types.py
-  utils.py
-
-api/
-  main.py
-
-nodes/
-  executor.py
-
-
-tools/
-  browser.py
-
-run.py
-Dockerfile
-docker-compose.yml
-requirements.txt
-.env.example
+langgraph-computer-use-agent/
+│
+├── cua/
+│   ├── __init__.py
+│   ├── graph.py
+│   ├── call_model.py
+│   ├── types.py
+│   └── utils.py
+│
+├── api/
+│   ├── __init__.py
+│   └── main.py
+│
+├── nodes/
+│   ├── __init__.py
+│   └── executor.py
+│
+├── tools/
+│   ├── __init__.py
+│   └── browser.py
+│
+├── run.py
+├── Dockerfile
+├── docker-compose.yml
+├── requirements.txt
+├── .env.example
+└── README.md
 
 ---
 
