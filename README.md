@@ -1,155 +1,163 @@
 # 🧠 Computer Use Agent (LangGraph + OpenAI + Scrapybara)
 
-An AI-powered Computer Use Agent built using LangGraph, OpenAI GPT-4.1, and Scrapybara VM infrastructure.  
-The agent can control a virtual machine browser and perform real-world tasks like searching, clicking, navigating websites, and interacting with web UI.
+An autonomous AI agent that uses a virtual machine browser to perform real-world tasks like searching, clicking, navigating websites, and interacting with web UI.
+
+Built using:
+- LangGraph (agent workflow)
+- OpenAI GPT-4.1 (reasoning)
+- Scrapybara (VM + browser automation)
+- FastAPI (API layer)
+- Docker (containerized execution)
 
 ---
 
-## 🚀 Features
+# 🚀 Features
 
-- LLM-driven decision making using OpenAI GPT-4.1 / GPT-4.1-mini  
-- Virtual machine execution using Scrapybara  
-- Browser automation (Google search, clicking, scrolling, navigation)  
-- LangGraph stateful workflow  
-- Screenshot-based reasoning (computer-use loop)  
-- Fully containerized using Docker  
-
----
-
-## 🏗️ Architecture
-
-User Prompt → LangGraph Agent → OpenAI GPT-4.1 → Computer Use Tool (VM) → Browser Actions → Screenshot feedback loop → repeat
+- Autonomous browser control using AI
+- Multi-step reasoning with LangGraph
+- VM-based execution (Scrapybara)
+- Screenshot-based feedback loop
+- REST API for triggering tasks
+- Fully Dockerized
 
 ---
 
-## 📦 Tech Stack
+# 🏗️ Architecture
 
-Python 3.11  
-LangGraph  
-LangChain OpenAI  
-OpenAI API  
-Scrapybara VM  
-FastAPI  
-Uvicorn  
-Docker  
-Docker Compose  
+User Request  
+→ FastAPI  
+→ LangGraph Agent  
+→ OpenAI LLM  
+→ Computer Use Tools  
+→ VM Browser (Scrapybara)  
+→ Screenshot feedback loop  
+→ Final result
 
 ---
 
-## ⚙️ Setup Instructions
+# 📦 Project Structure
 
-### 1. Clone repository
+cua/
+  graph.py
+  call_model.py
+  types.py
+  utils.py
+
+api/
+  main.py
+
+nodes/
+  executor.py
+
+tools/
+  browser.py
+
+run.py
+Dockerfile
+docker-compose.yml
+requirements.txt
+.env.example
+
+---
+
+# ⚙️ Setup Instructions
+
+## 1. Clone repo
 git clone https://github.com/IshantDere/langgraph-computer-using-agent.git
 cd langgraph-computer-using-agent
 
 ---
 
-### 2. Create .env file
-OPENAI_API_KEY=your_openai_api_key
-SCRAPYBARA_API_KEY=your_scrapybara_api_key
+## 2. Setup environment
+Copy `.env.example` → `.env`
+
+OPENAI_API_KEY=your_key
+SCRAPYBARA_API_KEY=your_key
 
 ---
 
-### 3. Build and run
+## 3. Build Docker
 docker compose up -d --build
 
 ---
 
-### 4. Run API
-If using FastAPI:
-
+## 4. Run API
 http://localhost:8000/
 
 Run agent task:
-
 http://localhost:8000/run-task
 
 ---
 
-### 5. View logs
-docker logs -f cua-agent
-
----
-
-## 💡 Example Task
+# 💡 Example Task
 
 Open Google and search LangGraph
 
 ---
 
-## 🧠 How it works
+# 🧠 How it works
 
-call_model → LLM reasoning step  
-create_vm_instance → starts VM browser  
-take_computer_action → performs browser actions  
-loop continues until task completes  
-
----
-
-## 📁 Project Structure
-
-langgraph-computer-use-agent/
-│
-├── cua/
-│   ├── __init__.py
-│   ├── graph.py
-│   ├── call_model.py
-│   ├── types.py
-│   └── utils.py
-│
-├── api/
-│   ├── __init__.py
-│   └── main.py
-│
-├── nodes/
-│   ├── __init__.py
-│   └── executor.py
-│
-├── tools/
-│   ├── __init__.py
-│   └── browser.py
-│
-├── run.py
-├── Dockerfile
-├── docker-compose.yml
-├── requirements.txt
-├── .env.example
-└── README.md
+1. User sends task
+2. LLM interprets instructions
+3. VM browser launches
+4. Actions executed step-by-step
+5. Screenshots validate progress
+6. Loop continues until completion
 
 ---
 
-## ⚠️ Requirements
+# 📡 API Endpoints
 
-- OpenAI API key (GPT-4.1 access required)
+GET /
+→ Health check
+
+GET /run-task
+→ Runs sample agent task
+
+---
+
+# 🐳 Docker Support
+
+Build:
+docker compose up -d --build
+
+Logs:
+docker logs -f cua-agent
+
+---
+
+# ⚠️ Requirements
+
+- OpenAI API key (GPT-4.1 access)
 - Scrapybara API key
-- Docker installed (recommended 6GB+ RAM)
+- Docker installed (6GB+ RAM recommended)
 
 ---
 
-## ❗ Important Notes
+# ❗ Important Notes
 
-- Gemini / Groq are NOT supported
+- Gemini / Groq are NOT supported in this setup
 - Only OpenAI tool-calling models work correctly
-- VM is required for computer-use actions
-- Ensure billing is enabled for OpenAI API
+- VM is required for browser automation
+- Ensure billing is enabled for API usage
 
 ---
 
-## 📌 Future Improvements
+# 📌 Future Improvements
 
-- Playwright fallback mode (no VM required)
+- Playwright fallback (no VM dependency)
 - Multi-agent planning system
-- Memory + task history
-- Live browser view UI
+- Live browser streaming UI
+- Memory-based agent reasoning
 
 ---
 
-## 👨‍💻 Author
+# 👨‍💻 Author
 
 Built using LangGraph + OpenAI + Scrapybara
 
 ---
 
-## ⭐ Support
+# ⭐ Support
 
 If you like this project, give it a star ⭐ and contribute 🚀
